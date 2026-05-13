@@ -271,7 +271,7 @@ actions:
 
   uninstallAgent:
     cmd [${this}]: |-
-      service bitninja stop; yum -y remove 'bitninja*'; 
+      service bitninja stop; yum -y remove --noautoremove 'bitninja*'; 
       rm -Rf /opt/bitninja*; rm -Rf /var/lib/bitninja*; rm -Rf /etc/bitninja*;
       sed -i "s|;/etc/bitninja||g" ${globals.EXTEND_PERM}
       jem filemanager extendperm
